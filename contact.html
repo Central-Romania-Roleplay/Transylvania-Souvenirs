@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Transylvania Souvenirs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header" data-header>
+        <div class="container">
+    
+            <div class="overlay" data-overlay></div>
+    
+            <a href="index.html" class="logo">
+                <img src="Images/logo2.png" width="100" height="75" alt="Transylvania Souvenirs logo">
+            </a>
+    
+            <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+                <i class="fas fa-bars"></i> <!-- Iconița pentru meniu, folosind Font Awesome -->
+            </button>
+    
+            <nav class="navbar" data-navbar>
+    
+                <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+    
+                <ul class="navbar-list">
+    
+                    <li class="navbar-item">
+                        <a href="index.html" class="navbar-link" id="home">Acasa</a>
+                    </li>
+    
+                    <li class="navbar-item">
+                        <a href="about.html" class="navbar-link" id="about">Despre Noi</a>
+                    </li>
+    
+                    <li class="navbar-item">
+                        <a href="contact.html" class="navbar-link" id="contact">Contact</a>
+                    </li>
+    
+                </ul>
+    
+                <!-- Butonul pentru schimbarea limbii -->
+                <div class="language-buttons">
+                    <button onclick="changeLanguage('ro')" class="language-button">RO</button>
+                    <button onclick="changeLanguage('en')" class="language-button">ENG</button>
+                    <button onclick="changeLanguage('hu')" class="language-button">HUN</button>
+                </div>
+    
+            </nav>
+    
+        </div>
+    </header>
+
+    <div class="container">
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="2dd57eef-6ba9-4d43-9cab-f5c8c719dedd">
+          <hr class="he">
+            <h2 class="h22">Contact</h2>
+          <hr class="he">
+          <div class="form-group">
+            <label for="name" id="fillname">Numele tau*</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Nr. Telefon *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Mesaj *</label>
+            <textarea id="message" name="message" rows="5"  required></textarea>
+          </div>
+          <button type="submit">Trimite</button>
+        </form>
+      </div>
+      <script>
+        function changeLanguage(lang) {
+
+            const home = {
+                ro: "Acasa",
+                en: "Home",
+                hu: "Kezdőlap"
+            };
+            document.querySelector('#home').innerText = home[lang];
+
+            const about = {
+                ro: "Despre Noi",
+                en: "About",
+                hu: "Rólunk"
+            };
+            document.querySelector('#about').innerText = about[lang];
+
+            const contact = {
+                ro: "Contact",
+                en: "Contact",
+                hu: "Kapcsolat"
+            };
+            document.querySelector('#contact').innerText = contact[lang];
+
+            const title = {
+                ro: "Produse",
+                en: "Products",
+                hu: "Termékek"
+            };
+            document.querySelector('#title').innerText = title[lang];
+
+            const h22 = {
+                ro: "Numele Tau",
+                en: "Your Name",
+                hu: "Neve"
+            };
+            document.querySelector('h2').innerText = h22[lang];
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+            const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+            const navbar = document.querySelector("[data-navbar]");
+            const overlay = document.querySelector("[data-overlay]");
+
+            navOpenBtn.addEventListener("click", function() {
+                navbar.classList.add("active");
+                overlay.classList.add("active");
+            });
+
+            navCloseBtn.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+
+            overlay.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+</html>
